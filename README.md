@@ -94,7 +94,7 @@
   
   After processing all sub directories, Title Page JPG for `Test PDF 2.1.pdf` is deleted.
   
-  `python pdftitleimager -recursive`
+  `python pdftitleimager --recursive`
   
   Output
   ```
@@ -105,3 +105,8 @@
    Skipped   #1 Test PDF 2.2.pdf ALREADY PROCESSED
   Complete! 1 file processed.
   ```
+
+  **High Quality JPGs** 
+  The quality of the JPG title pages can be increased, at the expense of larger file sizes,
+  
+  `python pdftitleimager --quality 80`
