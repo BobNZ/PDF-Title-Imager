@@ -1,14 +1,17 @@
-#DESCRIPTION
-This script will create an image of the 1st page (title page) of a pdf. The script will process all files in the current
-directory and all files in the subdirectories if -recursive argument is included
+#PDF Title Imager
+Having problems finding the exact PDF file that you are looking for. PDF Title Imager creates a JPG of the title page of all your PDFs allowing you to view your folders with one of the icon views in Windows Explorer.     
 
-PDFs that already have an title page image will always be skipped. To reprocess these PDFs, just delete the related JPG file
-Directories where a JPG exists for the last PDF (and there are at least as many JPGs as PDFs) will be skipped unless the -force argument is used
-For details on all the files skipped, use the -verbose argument
+By default, PDF Title Imager will process all the PDFs in the current directory and ignore any PDFS that already have PDF title page JPG. This can be overridden with the following arguments:
+'-r --recursive'  Process all subdirectories as well
+'-f --force'      Force processing of folders already processed. PDF Title Imager assumes that a directory is already processed if there is a PDF title page for the last PDF in the directory and there are at least as many JPGs and PDFs
+'-v --verbose'    Explicitly lists the PDFs that have been skipped
+'-d --directory'  Explicitly specify the parent directory to process rather than using the current directory by default
+'-q --quality'    Specify the JPG quality. The default is 20(%)
+'-p --poppler'    Override the poppler bin folder path. The default is 'C:\\Python\\poppler\\Library\\bin'
   
 
-#INSTALLATION INSTRUCTIONS
+##INSTALLATION INSTRUCTIONS
  1. Install Poppler 'conda install -c conda-forge poppler', or
- - Download from https://github.com/oschwartz10612/poppler-windows/releases/
- - Unzip in C:\Python\Poppler (Bin directory should be c:\Python\Poppler\Library\bin. If not then update popplerPath parameter
+    - Download poppler from https://github.com/oschwartz10612/poppler-windows/releases/
+    - Unzip in C:\Python\Poppler
  2. Install pdf2image 'pip install pdf2image'
