@@ -20,11 +20,14 @@
   | Parameter            | Default   |  Description |
   | :------------------- | :-------- | :----------- |
   | -r --recursive       | false     | Process all subdirectories |
-  | -f --force           | false     | Force processing of folders all folders. Note: Does not force processing of PDFs that already have a JPD  |
+  | -f --force           | false     | Force processing of all folders PDF Title Imager thinks are alread processed |
   | -s --summary         | false     | Only list directories |
   | -d --directory       | .\        | Specify the parent directory to process |
   | -q --quality         | 20        | Specify the JPG quality in % |
   | -p --poppler         | C:\\Python\\poppler\\Library\\bin | Override the poppler bin folder path. The default is |
+  
+  **Additional Notes**
+  For faster performance, and to reduce the list of PDF files skipped, the  PDF Title Imager assumes that a directory has already been processed if the last PDF has a Title Page JPG and there are at least as many JPGs as PDFs. However, in the case that a directory is full of unrelated JPGs and the last PDF is one of the only, or few, PDFs that has a JPG Title Page, the `-f` or `--force` parameter can be used to force the processing of each PDF in the directory. 
   
  
  
@@ -45,6 +48,7 @@
   Processed #1 Test PDF 0.3.pdf
   Complete! 3 files processed.
   ```
+  
   
   **Process PDFs in all sub directories**
   
@@ -68,6 +72,7 @@
   Complete! 8 files processed. 
   ```
   
+  
   **Summary Output**
   
   Only the directories are displayed when they are processed
@@ -82,9 +87,10 @@
   Complete! 8 files processed.
   ```
   
+  
   **Reprocessing PDFs** 
   
-  After processing all sub directories, Title Page JPG for `Test PDF 2.1.pdf` and all the sub directories are reprocessed.
+  After processing all sub directories, Title Page JPG for `Test PDF 2.1.pdf` is deleted.
   
   `python pdftitleimager -recursive`
   
