@@ -27,7 +27,7 @@ class PDFTitlePageImager(object):
     def image(self, directory='.', force=False, quality=20, recursive=False):
         dirList = self.getDirList(directory, recursive) 
         dirListCount = len(dirList)
-        self.print("DIRECTORIES: " + str(dirListCount))
+        # self.print("DIRECTORIES TO PROCESS: " + str(dirListCount))
         for dirName in dirList:
             fileList  = self.getFileList(dirName, "pdf")
             imageList = self.getFileList(dirName, "jpg")
@@ -35,20 +35,20 @@ class PDFTitlePageImager(object):
             fileListCount = len(fileList)
             imageListCount = len(imageList)
             if not fileList: # Just skip directories that are empty
-                self.verbose_print("EMPTY      DIRECTORY #" + str(dirListCount) + " " + dirName)
+                self.print("EMPTY      DIRECTORY #" + str(dirListCount) + " " + dirName)
             elif not force and ((fileList[fileListCount-1].replace("pdf","jpg") in imageList) 
                 and (fileListCount <= imageListCount)): # If last PDF has an image then assume all PDFs have an image. But double check that there are at least as many images as PDFs
-                self.verbose_print("SKIPPED    DIRECTORY #" + str(dirListCount) + " " + dirName)
+                self.print("SKIPPED    DIRECTORY #" + str(dirListCount) + " " + dirName)
             else:
-                self.verbose_print("PROCESSING DIRECTORY #" + str(dirListCount) + " " + dirName)
+                self.print("PROCESSING DIRECTORY #" + str(dirListCount) + " " + dirName)
                 for fileName in fileList:
                     if fileName.replace("pdf","jpg") in imageList: # If there is an image for the PDF then it has already been processed
                         self.verbose_print(" Skipped   #" + str(fileListCount) + " " + os.path.basename(fileName) + " ALREADY PROCESSED")
                     else:
-                        if not self._verbose and not processed:
-                            self.print("PROCESSING #" + str(dirListCount) + " " + dirName)
+                        if not processed:
+                            self.verbose_print("PROCESSING #" + str(dirListCount) + " " + dirName)
                             processed = True
-                        self.print(" Processed #" + str(fileListCount) + " " + os.path.basename(fileName))
+                        self.verbose_print(" Processed #" + str(fileListCount) + " " + os.path.basename(fileName))
                         self.createImage(fileName, quality)
                     fileListCount -= 1
             dirListCount -= 1
@@ -84,7 +84,7 @@ class PDFTitlePageImager(object):
         print(*args)
             
     def close(self):
-        self.print(" " + str(self._filecount) + " files processed. Complete!")
+        self.print("Complete! " + str(self._filecount) + f" file{'s'[:self._filecount^1]} processed.")
         if self._errorList:
             self.verbose_print("FAILED TO PROCESS:")
             for fileName in self._errorList:
@@ -93,20 +93,20 @@ class PDFTitlePageImager(object):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='PDF Title Page Imager')
-    parser.add_argument('-d', '--directory', default='.',
-                        help='parent directory containing PDFs')
-    parser.add_argument('-v', '--verbose',  action='store_true',
-                        help='print additional output')
-    parser.add_argument('-f', '--force',    action='store_true',
-                        help='force checking of directories already processed')
     parser.add_argument('-r', '--recursive', action='store_true',
                         help='process subdirectories recursively')
+    parser.add_argument('-f', '--force',    action='store_true',
+                        help='force checking of directories already processed')
     parser.add_argument('-q', '--quality',  default=20,
                         help='image quality 1-100. 1 lowest to 100 highest level')
+    parser.add_argument('-s', '--summary',  action='store_true',
+                        help='print additional output')
+    parser.add_argument('-d', '--directory', default='.',
+                        help='parent directory containing PDFs')
     parser.add_argument('-p', '--poppler',  default='C:\\Python\\poppler\\Library\\bin',
                         help='Popplar bin directory')
 
     opts = parser.parse_args()
-    imager = PDFTitlePageImager(verbose=opts.verbose, poppler_path=opts.poppler)
+    imager = PDFTitlePageImager(verbose=not opts.summary, poppler_path=opts.poppler)
     imager.image(directory=opts.directory, force=opts.force, quality=int(opts.quality), recursive=opts.recursive)
     imager.close()
