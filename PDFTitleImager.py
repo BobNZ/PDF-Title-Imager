@@ -21,6 +21,7 @@ class PDFTitlePageImager(object):
             processed = False
             fileListCount = len(fileList)
             imageListCount = len(imageList)
+            
             if not fileList: # Just skip directories that are empty
                 self.print("EMPTY      DIRECTORY #" + str(dirListCount) + " " + dirName)
             elif not force and ((fileList[fileListCount-1].replace("pdf","jpg") in imageList) 
@@ -32,9 +33,6 @@ class PDFTitlePageImager(object):
                     if fileName.replace("pdf","jpg") in imageList: # If there is an image for the PDF then it has already been processed
                         self.verbose_print(" Skipped   #" + str(fileListCount) + " " + os.path.basename(fileName) + " ALREADY PROCESSED")
                     else:
-                        if not processed:
-                            self.verbose_print("PROCESSING #" + str(dirListCount) + " " + dirName)
-                            processed = True
                         self.verbose_print(" Processed #" + str(fileListCount) + " " + os.path.basename(fileName))
                         self.createImage(fileName, quality)
                     fileListCount -= 1
