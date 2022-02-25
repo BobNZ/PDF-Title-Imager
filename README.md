@@ -1,5 +1,5 @@
 # PDF Title Imager
-  Due you have a large (or small) collection of PDFs and would like to see the title page of all the PDFs without having to open them one by one? DF Title Imager creates a JPG file of the title page of all your PDFs allowing you to view the title page of all your PDFs using, for example,  the icon view in Windows Explorer `CTRL + ALT + 1` or `ALT-V` and select your preferred icon view 
+  Do you have a large (or small) collection of PDFs and would like to see the title page of all the PDFs without having to open them one by one? PDF Title Imager quickly creates a JPG image of the PDFs title page for all your PDFs allowing you to view the cover page of all your PDFs using, for example,  the icon view in Windows Explorer `CTRL + ALT + 1` or `ALT-V` and select your preferred icon view 
   
 
 ### INSTALLATION INSTRUCTIONS
@@ -20,14 +20,14 @@
   | Parameter            | Default   |  Description |
   | :------------------- | :-------- | :----------- |
   | -r --recursive       | false     | Process all subdirectories |
-  | -f --force           | false     | Force processing of all folders PDF Title Imager thinks are alread processed |
+  | -f --force           | false     | Force processing of all folders PDF Title Imager thinks are already processed |
   | -s --summary         | false     | Only list directories |
   | -d --directory       | .\        | Specify the parent directory to process |
   | -q --quality         | 20        | Specify the JPG quality in % |
-  | -p --poppler         | C:\\Python\\poppler\\Library\\bin | Override the poppler bin folder path. The default is |
+  | -p --poppler         | C:\\Python\\poppler\\Library\\bin | Override the poppler bin folder path |
   
   **Additional Notes**
-  For faster performance, and to reduce the list of PDF files skipped, the  PDF Title Imager assumes that a directory has already been processed if the last PDF has a title page JPG and there are at least as many JPGs as PDFs. However, in the case that a directory is full of unrelated JPGs and the last PDF is one of the only, or few, PDFs that has a JPG title page, the `-f` or `--force` parameter can be used to force the processing of each PDF in the directory. 
+  For faster performance, and to reduce the list of PDF files skipped, the PDF Title Imager assumes that a directory has already been processed if the last PDF has a title page JPG and there are at least as many JPGs as PDFs. However, in the case that a directory is full of unrelated JPGs and the last PDF is one of the only, or few, PDFs that has a JPG title page, the `-f` or `--force` parameter can be used to force the processing of each PDF in the directory. 
   
  
  
