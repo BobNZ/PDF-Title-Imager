@@ -1,5 +1,5 @@
 # PDF Title Imager
-  Having problems finding the exact PDF file that you are looking for. PDF Title Imager creates a JPG of the title page of all your PDFs allowing you to view your folders with one of the icon views in Windows Explorer.     
+  Due you have a large (or small) collection of PDFs and would like to see the title page of all the PDFs without having to open them one by one? DF Title Imager creates a JPG file of the title page of all your PDFs allowing you to view the title page of all your PDFs using the icon view in Windows Explorer `CTRL + ALT + 1`  (or your preferred file system viewer).     
   
 
 ### INSTALLATION INSTRUCTIONS
@@ -30,9 +30,12 @@
  
   ### Example
   
-  ** Default ** 
-  Process the current directory and all subdirectories, ignore files that have a PDF title page JPG
+  **Default** 
+ 
+  Process the current directory and all subdirectories, ignore files that have a PDF title page JPG.
+  
   `python pdftitleimager`
+  
   Output
   ```
   DIRECTORIES To PROCESS: 1
@@ -43,8 +46,12 @@
   Complete! 3 files processed.
   ```
   
-  ** Recursive **
+  **Process PDFs in all sub directories**
+  
+  PDFs in the current directory and all subdirectories are processed
+  
   `python pdftitleimager -r`
+  
   Output
   ```
   PROCESSING DIRECTORY #3 .\
@@ -61,8 +68,12 @@
   Complete! 8 files processed. 
   ```
   
-  ** Recursive Summary **
+  **Summary Output**
+  
+  Only the directories are displayed when they are processed
+  
   `python pdftitleimager -r -s`
+  
   Output
   ```
   PROCESSING DIRECTORY #3 .\
@@ -71,8 +82,13 @@
   Complete! 8 files processed.
   ```
   
-  ** Reprocessing Recursive** 
-  Reprocessing after deleting `JPG file for Test PDF 2.1.pdf`.
+  **Reprocessing PDFs** 
+  
+  After processing all sub directories, Title Page JPG for `Test PDF 2.1.pdf` and all the sub directories are reprocessed.
+  
+  `python pdftitleimager -recursive`
+  
+  Output
   ```
   SKIPPED    DIRECTORY #3 .\
   SKIPPED    DIRECTORY #2 .\Test PDF Folder 1\
