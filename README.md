@@ -19,10 +19,10 @@
   
   | Parameter            | Default   |  Description |
   | :------------------- | :-------- | :----------- |
-  | -r --recursive       | false     | Process all subdirectories as well |
-  | -f --force           | false     | Force processing of folders are assumed as already processed  |
-  | -s --summary         | false     | Only list the directories |
-  | -d --directory       | .\        | Explicitly specify the parent directory to process rather than using the current directory by default |
+  | -r --recursive       | false     | Process all subdirectories |
+  | -f --force           | false     | Force processing of folders all folders. Note: Does not force processing of PDFs that already have a JPD  |
+  | -s --summary         | false     | Only list directories |
+  | -d --directory       | .\        | Specify the parent directory to process |
   | -q --quality         | 20        | Specify the JPG quality in % |
   | -p --poppler         | C:\\Python\\poppler\\Library\\bin | Override the poppler bin folder path. The default is |
   
