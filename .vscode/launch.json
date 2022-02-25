@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Default",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": []
+        } ,
+        {
+            "name": "Recursive Verbose",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": ["--verbose", "--recursive"]
+        },
+        {
+            "name": "Recursive Verbose Forced",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": ["--force", "--verbose", "--recursive"]
+        }
+    ]
+}
