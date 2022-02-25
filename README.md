@@ -31,7 +31,7 @@
   
  
  
-  ### Example
+  ### Examples
   
   **Default** 
  
