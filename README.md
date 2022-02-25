@@ -41,7 +41,8 @@
   Processed #2 Test PDF 0.2.pdf
   Processed #1 Test PDF 0.3.pdf
   Complete! 3 files processed.
-
+  ```
+  
   ** Recursive **
   `python pdftitleimager -r`
   Output
@@ -58,7 +59,8 @@
   Processed #2 Test PDF 2.1.pdf
   Processed #1 Test PDF 2.2.pdf
   Complete! 8 files processed. 
- 
+  ```
+  
   ** Recursive Summary **
   `python pdftitleimager -r -s`
   Output
@@ -67,7 +69,8 @@
   PROCESSING DIRECTORY #2 .\Test PDF Folder 1\
   PROCESSING DIRECTORY #1 .\Test PDF Folder 2\
   Complete! 8 files processed.
- 
+  ```
+  
   ** Reprocessing Recursive** 
   Reprocessing after deleting `JPG file for Test PDF 2.1.pdf`.
   ```
@@ -77,4 +80,4 @@
    Processed #2 Test PDF 2.1.pdf
    Skipped   #1 Test PDF 2.2.pdf ALREADY PROCESSED
   Complete! 1 file processed.
-  
+  ```
