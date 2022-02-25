@@ -18,7 +18,6 @@ class PDFTitlePageImager(object):
         for dirName in dirList:
             fileList  = self.getFileList(dirName, "pdf")
             imageList = self.getFileList(dirName, "jpg")
-            processed = False
             fileListCount = len(fileList)
             imageListCount = len(imageList)
             
