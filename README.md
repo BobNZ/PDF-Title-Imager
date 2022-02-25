@@ -1,4 +1,4 @@
-#PDF Title Imager
+# PDF Title Imager
 Having problems finding the exact PDF file that you are looking for. PDF Title Imager creates a JPG of the title page of all your PDFs allowing you to view your folders with one of the icon views in Windows Explorer.     
 
 By default, PDF Title Imager will process all the PDFs in the current directory and ignore any PDFS that already have PDF title page JPG. This can be overridden with the following arguments:
@@ -10,7 +10,7 @@ By default, PDF Title Imager will process all the PDFs in the current directory 
 '-p --poppler'    Override the poppler bin folder path. The default is 'C:\\Python\\poppler\\Library\\bin'
   
 
-##INSTALLATION INSTRUCTIONS
+## INSTALLATION INSTRUCTIONS
  1. Install Poppler 'conda install -c conda-forge poppler', or
     - Download poppler from https://github.com/oschwartz10612/poppler-windows/releases/
     - Unzip in C:\Python\Poppler
