@@ -107,6 +107,7 @@
   ```
 
   **High Quality JPGs** 
-  The quality of the JPG title pages can be increased, at the expense of larger file sizes,
+  
+  The quality of the JPG title pages can be increased, at the expense of larger file sizes.
   
   `python pdftitleimager --quality 80`
