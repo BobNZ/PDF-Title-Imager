@@ -1,5 +1,5 @@
 # PDF Title Imager
-  Due you have a large (or small) collection of PDFs and would like to see the title page of all the PDFs without having to open them one by one? DF Title Imager creates a JPG file of the title page of all your PDFs allowing you to view the title page of all your PDFs using, for exmaple,  the icon view in Windows Explorer `CTRL + ALT + 1` or `ALT-V` and select our preferred icon view 
+  Due you have a large (or small) collection of PDFs and would like to see the title page of all the PDFs without having to open them one by one? DF Title Imager creates a JPG file of the title page of all your PDFs allowing you to view the title page of all your PDFs using, for example,  the icon view in Windows Explorer `CTRL + ALT + 1` or `ALT-V` and select your preferred icon view 
   
 
 ### INSTALLATION INSTRUCTIONS
@@ -10,7 +10,7 @@
     or, for Windows users
     
     - Download poppler from https://github.com/oschwartz10612/poppler-windows/releases/
-    - Unzip in C:\Python\Poppler
+    - Unzip poppler in C:\Python\Poppler
     
  2. Install pdf2image `pip install pdf2image`
 
