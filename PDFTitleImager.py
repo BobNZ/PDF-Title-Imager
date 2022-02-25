@@ -1,16 +1,3 @@
-# DESCRIPTION
-# This script will create an image of the 1st page (title page) of a pdf
-#  
-#
-# INSTALLATION INSTRUCTIONS
-# 1. Install Poppler https://stackoverflow.com/questions/18381713/how-to-install-poppler-on-windows
-#    a) Download from https://github.com/oschwartz10612/poppler-windows/releases/
-#    b) Unzip in C:\Python\Poppler (Bin directory should be c:\Python\Poppler\Library\bin. If not then update popplerPath parameter
-# 2. Install pdf2image
-#    a) From command line: python -m pip install pdf2image
-# 
-# Version   Date         Owner   Description 
-# 1.0       25 Feb 2022  RJ      Release version
 import argparse
 from xml.dom.xmlbuilder import Options
 from pdf2image import convert_from_path
