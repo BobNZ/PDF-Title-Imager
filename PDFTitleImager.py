@@ -12,9 +12,9 @@ class PDFTitlePageImager(object):
         self._filecount = 0
 
     def image(self, directory='.', force=False, quality=20, recursive=False):
+        self.print("READING DIRECTORIES..." )
         dirList = self.getDirList(directory, recursive) 
         dirListCount = len(dirList)
-        # self.print("DIRECTORIES TO PROCESS: " + str(dirListCount))
         for dirName in dirList:
             fileList  = self.getFileList(dirName, "pdf")
             imageList = self.getFileList(dirName, "jpg")
@@ -23,10 +23,10 @@ class PDFTitlePageImager(object):
             processed = 0
 
             if not fileList: # Just skip directories that are empty
-                self.print("EMPTY           DIRECTORY #" + str(dirListCount) + " " + dirName)
+                self.print("EMPTY    DIRECTORY #" + str(dirListCount) + " " + dirName)
             elif not force and ((fileList[fileListCount-1].replace("pdf","jpg") in imageList) 
                 and (fileListCount <= imageListCount)): # If last PDF has an image then assume all PDFs have an image. But double check that there are at least as many images as PDFs
-                self.print("SKIPPED         DIRECTORY #" + str(dirListCount) + " " + dirName)
+                self.print("SKIPPED  DIRECTORY #" + str(dirListCount) + " " + dirName)
             else:
                 self.verbose_print("PROCESSING DIRECTORY #" + str(dirListCount) + " " + dirName)
                 self.summary_print("     PROCESSING DIRECTORY #" + str(dirListCount) + " " + dirName)
@@ -53,9 +53,13 @@ class PDFTitlePageImager(object):
         return fileList
 
     def getFileList(self, sourceDir, fileType):
-        # Read all the PDF files in the directory and sort by name
-        fileList = [f for f in sorted(glob.glob(sourceDir + "*." + fileType))]
-        return fileList
+        try:
+            # Read all the PDF files in the directory and sort by name
+            fileList = [f for f in sorted(glob.glob(sourceDir + "*." + fileType))]
+            return fileList
+        except:
+            # Added due to crash error in glob.glob; directories with brackets https://bugs.python.org/issue738361
+            return []
 
     def createImage(self, fileName, quality):
         try:
