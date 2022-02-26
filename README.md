@@ -105,6 +105,30 @@
    Skipped   #1 Test PDF 2.2.pdf ALREADY PROCESSED
   Complete! 1 file processed.
   ```
+  
+  
+  **Force Reprocessing Directories** 
+  
+  After processing all sub directories, Title Page JPG for `Test PDF 2.1.pdf` is deleted. Force check every directory to ensure that there are no missing JPG title pages
+  
+  `python pdftitleimager --recursive --force`
+  
+  Output
+  ```
+  PROCESSING DIRECTORY #3 .\
+   Skipped   #3 Test PDF 0.1.pdf ALREADY PROCESSED
+   Skipped   #2 Test PDF 0.2.pdf ALREADY PROCESSED
+   Skipped   #1 Test PDF 0.3.pdf ALREADY PROCESSED
+  PROCESSING DIRECTORY #2 .\Test PDF Folder 1\
+   Skipped   #3 Test PDF 1.1.pdf ALREADY PROCESSED
+   Skipped   #2 Test PDF 1.2.pdf ALREADY PROCESSED
+   Skipped   #1 Test PDF 1.3.pdf ALREADY PROCESSED
+  PROCESSING DIRECTORY #1 .\Test PDF Folder 2\
+   Processed #2 Test PDF 2.1.pdf
+   Skipped   #1 Test PDF 2.2.pdf ALREADY PROCESSED
+  Complete! 1 file processed.
+  ```
+  
 
   **High Quality JPGs** 
   
