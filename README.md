@@ -83,9 +83,9 @@
   
   Output
   ```
-  PROCESSING DIRECTORY #3 .\
-  PROCESSING DIRECTORY #2 .\Test PDF Folder 1\
-  PROCESSING DIRECTORY #1 .\Test PDF Folder 2\
+    3-PROCESSED  DIRECTORY #3 .\
+    3-PROCESSED  DIRECTORY #2 .\Test PDF Folder 1\
+    2-PROCESSED  DIRECTORY #1 .\Test PDF Folder 2\
   Complete! 8 files processed.
   ```
   
