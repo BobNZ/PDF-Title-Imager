@@ -109,7 +109,7 @@
   
   **Force Reprocessing Directories** 
   
-  The script skips directories where there is already a JPG title page for the last PDF AND there are at least as many JPGs as PDFs. In the (hopefully) unlikely event that additional PDFs have been added or JPG title pages have been delete AND there are other unrelated JPGs in the directory, the force parameter can be used to force the script to check each PDF for a JOG title page individually
+  The script skips directories where there is already a JPG title page for the last PDF AND there are at least as many JPGs as PDFs. In the (hopefully) unlikely event that additional PDFs have been added or JPG title pages have been deleted AND there are other unrelated JPGs in the directory, the force parameter can be used to force the script to check each PDF for a JOG title page individually
   
   `python pdftitleimager --recursive --force`
   
