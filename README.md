@@ -20,7 +20,7 @@
   | Parameter            | Default   |  Description |
   | :------------------- | :-------- | :----------- |
   | -r --recursive       | false     | Process all subdirectories |
-  | -f --force           | false     | Force processing of PDFs in directories the script assumes* are already processed|
+  | -f --force           | false     | Force processing of PDFs in directories assumed* to be processed|
   | -s --summary         | false     | Only list directories processed |
   | -d --directory       | .\        | Specify the parent directory to process |
   | -q --quality         | 20        | Specify the JPG quality in % |
