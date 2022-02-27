@@ -20,15 +20,15 @@
   | Parameter            | Default   |  Description |
   | :------------------- | :-------- | :----------- |
   | -r --recursive       | false     | Process all subdirectories |
-  | -f --force           | false     | Force processing of all folders PDF Title Imager thinks are already processed |
-  | -s --summary         | false     | Only list directories |
+  | -f --force           | false     | Force processing of PDFs in directories the script assumes* are already processed|
+  | -s --summary         | false     | Only list directories processed |
   | -d --directory       | .\        | Specify the parent directory to process |
   | -q --quality         | 20        | Specify the JPG quality in % |
-  | -p --poppler         | C:\\Python\\poppler\\Library\\bin | Override the poppler bin folder path |
+  | -p --poppler         | C:\\Python\\poppler\\Library\\bin | Specify the poppler bin folder path |
   
   **Additional Notes**
   
-  For faster performance, and to reduce the list of PDF files skipped, the PDF Title Imager assumes that a directory has already been processed if the last PDF has a title page JPG and there are at least as many JPGs as PDFs. However, in the case that a directory is full of unrelated JPGs and the last PDF is one of the only, or few, PDFs that has a JPG title page, the `-f` or `--force` parameter can be used to force the processing of each PDF in the directory. 
+  \*For faster performance, and to reduce the list of PDF files reported, the PDF Title Imager assumes that a directory has already been processed if the last PDF has a title page JPG and there are at least as many JPGs as PDFs. However, in the case that a directory is full of unrelated JPGs and the last PDF is one of the only, or one of the few PDFs that has a JPG title page, the `-f` or `--force` parameter can be used to force the processing of each PDF in the directory. 
   
   The directory and PDF counter are delibertly in reverse order so you can immediately see the progress of the processing. That, and the author was too lazy to add a progress bar.
  
@@ -37,7 +37,7 @@
   
   **Default** 
  
-  Process the current directory and all subdirectories, ignore files that have a PDF title page JPG.
+  Only processes PDFs in the current directory. 
   
   `python pdftitleimager`
   
@@ -54,7 +54,7 @@
   
   **Process PDFs in all sub directories**
   
-  PDFs in the current directory and all subdirectories are processed
+  Processes PDFs in the current directory and all subdirectories.
   
   `python pdftitleimager -r`
   
@@ -77,7 +77,7 @@
   
   **Summary Output**
   
-  Only the directories are displayed when they are processed
+  Only displays the directories processed.
   
   `python pdftitleimager -r -s`
   
@@ -92,7 +92,7 @@
   
   **Reprocessing PDFs** 
   
-  After processing all sub directories, Title Page JPG for `Test PDF 2.1.pdf` is deleted.
+  PDFs that already have a JPB title page are skipped. e.g. if the JPG title page for `Test PDF 2.1.pdf` was deleted only that PDF would be processed when the script is rerun as per the output below.
   
   `python pdftitleimager --recursive`
   
@@ -109,7 +109,7 @@
   
   **Force Reprocessing Directories** 
   
-  After processing all sub directories, Title Page JPG for `Test PDF 2.1.pdf` is deleted. Force check every directory to ensure that there are no missing JPG title pages
+  The script skips directories where there is already a JPG title page for the last PDF AND there are at least as many JPGs as PDFs. In the (hopefully) unlikely event that additional PDFs have been added or JPG title pages have been delete AND there are other unrelated JPGs in the directory, the force parameter can be used to force the script to check each PDF for a JOG title page individually
   
   `python pdftitleimager --recursive --force`
   
