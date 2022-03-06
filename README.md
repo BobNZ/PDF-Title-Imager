@@ -21,7 +21,7 @@
   | :------------------- | :-------- | :----------- |
   | -r --recursive       | false     | Process all subdirectories |
   | -f --force           | false     | Force processing of PDFs in directories assumed* to be processed|
-  | -s --summary         | false     | Only list directories processed |
+  | -v --vervose         | false     | List each file processed |
   | -d --directory       | .\        | Specify the parent directory to process |
   | -q --quality         | 20        | Specify the JPG quality in % |
   | -p --poppler         | C:\\Python\\poppler\\Library\\bin | Specify the poppler bin folder path |
@@ -43,11 +43,10 @@
   
   Output
   ```
-  DIRECTORIES To PROCESS: 1
-  PROCESSING DIRECTORY #1 .\
-  Processed #3 Test PDF 0.1.pdf
-  Processed #2 Test PDF 0.2.pdf
-  Processed #1 Test PDF 0.3.pdf
+  READING DIRECTORIES...
+   STATUS | PDF   | SKIP  | ERROR | DIRECTORY
+  --------|-------|-------|-------|---------------------------------------------------------------------------
+   DONE   |     3 |     0 |     0 | #1 .\
   Complete! 3 files processed.
   ```
   
@@ -57,6 +56,41 @@
   Processes PDFs in the current directory and all subdirectories.
   
   `python pdftitleimager -r`
+  
+  Output
+  ```
+  READING DIRECTORIES...
+   STATUS | PDF   | SKIP  | ERROR | DIRECTORY
+  --------|-------|-------|-------|---------------------------------------------------------------------------
+   DONE   |     3 |     0 |     0 | #3 .\
+   DONE   |     3 |     0 |     0 | #2 .\Test PDF Folder 1\
+   DONE   |     2 |     0 |     0 | #1 .\Test PDF Folder 2\
+  Complete! 8 files processed.
+  ```
+
+  **Reprocessing PDFs**
+
+  PDFs that already have a JPG title page are skipped. e.g. if the JPG title page for `Test PDF 2.1.pdf` was deleted only that PDF would be processed
+  
+  `python pdftitleimager -r`
+  
+  Output
+  ```
+  READING DIRECTORIES...
+   STATUS | PDF   | SKIP  | ERROR | DIRECTORY
+  --------|-------|-------|-------|---------------------------------------------------------------------------
+   DONE   |     0 |     3 |     0 | #3 .\
+   DONE   |     0 |     3 |     0 | #2 .\Test PDF Folder 1\
+   DONE   |     1 |     1 |     0 | #1 .\Test PDF Folder 2\
+  Complete! 1 file processed.
+  ```
+  
+  
+  **Verbose Output**
+  
+  List all the files processed.
+  
+  `python pdftitleimager -r -v`
   
   Output
   ```
@@ -74,39 +108,8 @@
   Complete! 8 files processed. 
   ```
   
-  
-  **Summary Output**
-  
-  Only displays the directories processed.
-  
-  `python pdftitleimager -r -s`
-  
-  Output
-  ```
-    3-PROCESSED  DIRECTORY #3 .\
-    3-PROCESSED  DIRECTORY #2 .\Test PDF Folder 1\
-    2-PROCESSED  DIRECTORY #1 .\Test PDF Folder 2\
-  Complete! 8 files processed.
-  ```
-  
-  
-  **Reprocessing PDFs** 
-  
-  PDFs that already have a JPB title page are skipped. e.g. if the JPG title page for `Test PDF 2.1.pdf` was deleted only that PDF would be processed when the script is rerun as per the output below.
-  
-  `python pdftitleimager --recursive`
-  
-  Output
-  ```
-  SKIPPED    DIRECTORY #3 .\
-  SKIPPED    DIRECTORY #2 .\Test PDF Folder 1\
-  PROCESSING DIRECTORY #1 .\Test PDF Folder 2\
-   Processed #2 Test PDF 2.1.pdf
-   Skipped   #1 Test PDF 2.2.pdf ALREADY PROCESSED
-  Complete! 1 file processed.
-  ```
-  
-  
+
+
   **Force Reprocessing Directories** 
   
   The script skips directories where there is already a JPG title page for the last PDF AND there are at least as many JPGs as PDFs. In the (hopefully) unlikely event that additional PDFs have been added or JPG title pages have been deleted AND there are other unrelated JPGs in the directory, the force parameter can be used to force the script to check each PDF for a JOG title page individually
