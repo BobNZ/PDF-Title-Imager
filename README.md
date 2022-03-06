@@ -88,7 +88,7 @@
   
   **Verbose Output**
   
-  List all the files processed.
+  Display each file as it is processed.
   
   `python pdftitleimager -r -v`
   
