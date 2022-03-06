@@ -23,7 +23,8 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": ["--recursive","--summary"], 
+            "justMyCode":false,
+            "args": ["--recursive","--summary", "-d", "C:\\Test PDFs"] 
         },
         {
             "name": "Recursive Forced",
@@ -32,7 +33,7 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "args": ["--recursive", "--force"]
-        }
+        },
         {
             "name": "High Quality",
             "type": "python",
