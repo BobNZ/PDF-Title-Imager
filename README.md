@@ -21,7 +21,7 @@
   | :------------------- | :-------- | :----------- |
   | -r --recursive       | false     | Process all subdirectories |
   | -f --force           | false     | Force processing of PDFs in directories assumed* to be processed|
-  | -v --vervose         | false     | List each file processed |
+  | -v --verbose         | false     | List each file processed |
   | -d --directory       | .\        | Specify the parent directory to process |
   | -q --quality         | 20        | Specify the JPG quality in % |
   | -p --poppler         | C:\\Python\\poppler\\Library\\bin | Specify the poppler bin folder path |
@@ -45,7 +45,7 @@
   ```
   READING DIRECTORIES...
    STATUS | PDF   | SKIP  | ERROR | DIRECTORY
-  --------|-------|-------|-------|---------------------------------------------------------------------------
+  --------|-------|-------|-------|----------------------------------------------------------------------
    DONE   |     3 |     0 |     0 | #1 .\
   Complete! 3 files processed.
   ```
@@ -61,7 +61,7 @@
   ```
   READING DIRECTORIES...
    STATUS | PDF   | SKIP  | ERROR | DIRECTORY
-  --------|-------|-------|-------|---------------------------------------------------------------------------
+  --------|-------|-------|-------|----------------------------------------------------------------------
    DONE   |     3 |     0 |     0 | #3 .\
    DONE   |     3 |     0 |     0 | #2 .\Test PDF Folder 1\
    DONE   |     2 |     0 |     0 | #1 .\Test PDF Folder 2\
@@ -78,7 +78,7 @@
   ```
   READING DIRECTORIES...
    STATUS | PDF   | SKIP  | ERROR | DIRECTORY
-  --------|-------|-------|-------|---------------------------------------------------------------------------
+  --------|-------|-------|-------|----------------------------------------------------------------------
    DONE   |     0 |     3 |     0 | #3 .\
    DONE   |     0 |     3 |     0 | #2 .\Test PDF Folder 1\
    DONE   |     1 |     1 |     0 | #1 .\Test PDF Folder 2\
