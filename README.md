@@ -30,8 +30,6 @@
   
   \*For faster performance, and to reduce the list of PDF files reported, the PDF Title Imager assumes that a directory has already been processed if the last PDF has a title page JPG and there are at least as many JPGs as PDFs. However, in the case that a directory is full of unrelated JPGs and the last PDF is one of the only, or one of the few PDFs that has a JPG title page, the `-f` or `--force` parameter can be used to force processing of a directory. 
   
-  In verbose mode, the directory and PDF counter are delibertly in reverse order so you can see the progress of the processing. 
- 
  
   ### Examples
   
@@ -114,7 +112,7 @@
   
   The script skips directories where there is already a JPG title page for the last PDF AND there are at least as many JPGs as PDFs. In the (hopefully) unlikely event that additional PDFs have been added or JPG title pages have been deleted AND there are other unrelated JPGs in the directory, the force parameter can be used to force the script to check each PDF for a JPG title page individually
   
-  `python pdftitleimager --recursive --vervose --force`
+  `python pdftitleimager --recursive --verbose --force`
   
   Output
   ```
